@@ -147,7 +147,6 @@ INSTALLED_APPS = (
     
     # django-pluggables
     'appdir',
-    'django_vcs',
 
 )
 

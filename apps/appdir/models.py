@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from codehost.hosts import CODE_HOSTS
+from pyvcs.backends import AVAILABLE_BACKENDS, get_backend
+from itertools import count
 
 LICENSE_CHOICES = (
     ("BSD", "BSD"),
@@ -40,10 +41,22 @@ class Record(models.Model):
 
 class Repository(models.Model):
     app = models.ForeignKey(App)
-    host = models.CharField(max_length=20, choices=CODE_HOSTS)
-    url = models.URLField(verify_exists=False)
+    repository_type = models.CharField(max_length=20, choices=AVAILABLE_BACKENDS)
+    last_updated = models.DateTimeField(blank=True, null=True)
+    url = models.CharField(max_length=150)
     
     def __unicode__(self):
-        return self.app + ": " + self.get_location_display()
+        return self.get_repository_type_display() + ": " + str(self.app)
     
-    #def post_save(self):
+    @property
+    def repo(self):
+        if hasattr(self, '_repo'):
+            return self._repo
+        self._repo = get_backend(self.get_repository_type_display()).Repository(self.location)
+        return self._repo
+
+    def get_commit(self, commit_id):
+        try:
+            return self.repo.get_commit_by_id(str(commit_id))
+        except CommitDoesNotExist:
+            return None
