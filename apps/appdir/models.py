@@ -41,7 +41,7 @@ class Record(models.Model):
 
 class Repository(models.Model):
     app = models.ForeignKey(App)
-    repository_type = models.CharField(max_length=20, choices=AVAILABLE_BACKENDS)
+    #repository_type = models.CharField(max_length=20, choices=AVAILABLE_BACKENDS)
     last_updated = models.DateTimeField(blank=True, null=True)
     url = models.CharField(max_length=150)
     

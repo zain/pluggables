@@ -88,7 +88,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django_openid.consumer.SessionConsumer',
     'account.middleware.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'pagination.middleware.PaginationMiddleware',
@@ -113,7 +112,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     
     "notification.context_processors.notification",
     "announcements.context_processors.site_wide_announcements",
-    "account.context_processors.openid",
     "account.context_processors.account",
 )
 
@@ -128,7 +126,6 @@ INSTALLED_APPS = (
     
     # external
     'notification', # must be first
-    'django_openid',
     'emailconfirmation',
     'mailer',
     'announcements',
