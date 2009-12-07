@@ -1,0 +1,124 @@
+body {
+    color: #0F1214;
+    background-color: #FFF;
+    font-family: Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #0F1214;
+    color: #0F1214;
+}
+
+h3 {
+    font-size: 13px;
+}
+
+a:link, a:visited {
+    color: #437346;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #97D95C;
+}
+
+header {
+    color: #FFF;
+    background-color: #222224; /* header color */
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#search {
+    text-align: right;
+    padding-top: 8px;
+}
+
+nav {
+    background-color: #B7CC79; /* title color */
+    padding: 10px 0;
+    border-bottom: 2px solid #0F1214;
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 1.25em;
+}
+
+#content {
+    margin-top: 20px;
+    line-height: 1.25em;
+}
+
+.app_badge {
+    border: 1px solid #7B8A71;
+    background-color: #E9EB9B;
+    height: 75px;
+    margin: 10px 5px 10px 5px;
+    padding: 10px 10px;
+    color: #242424;
+    position: relative;
+}
+
+.app_badge a.name {
+    color: #437346;
+    font-weight: bold;
+    font-size: 1.25em;
+    display: block;
+    padding-bottom: .25em;
+}
+
+.app_badge .app_info {
+    width: 380px;
+}
+
+.app_badge .likes {
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    padding: 10px 12px;
+    background-color: #D8D4D0;
+    border: 1px solid #7B8A71;
+    color: #000;
+    text-align: center;
+}
+
+.app_badge .likes img {
+    padding-top: 3px;
+}
+
+.app_badge .moreinfo {
+    font-size: .75em;
+    position: absolute;
+    bottom: 3px;
+}
+
+.app_badge .license {
+    margin-left: 1.5em;
+}
+
+.app_badge .license::before {
+    content: "License: ";
+    font-weight: bold;
+}
+
+.app_badge .last_checkin::before {
+    content: "Last Active: ";
+    font-weight: bold;
+}
+
+footer {
+    position: absolute;
+    clear: both;
+    width: 100%;
+    bottom: 0;
+    color: #0F1214;
+    border-top: 2px solid #3D4F67;
+    background-color: #D2D2D2;
+    padding: 15px 0;
+}

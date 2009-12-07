@@ -6,8 +6,6 @@ from django.views.generic.simple import direct_to_template
 from django.contrib import admin
 admin.autodiscover()
 
-from account.openid_consumer import PinaxConsumer
-
 
 if settings.ACCOUNT_OPEN_SIGNUP:
     signup_view = "account.views.signup"
@@ -25,14 +23,13 @@ urlpatterns = patterns('',
     
     (r'^about/', include('about.urls')),
     (r'^account/', include('account.urls')),
-    (r'^openid/(.*)', PinaxConsumer()),
     (r'^profiles/', include('basic_profiles.urls')),
     (r'^notices/', include('notification.urls')),
     (r'^announcements/', include('announcements.urls')),
     
     (r'^admin/(.*)', admin.site.root),
     
-    (r'^app/', include('django_vcs.urls')),
+    (r'^app/', include('appdir.urls')),
 )
 
 if settings.SERVE_MEDIA:

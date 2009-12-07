@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/html5-reset-1.4.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/960.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+  
+  <title>{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head_title %}{% endblock %}</title>
+  
+  {% block extra_head_base %}
+      {% block extra_head %}{% endblock %}
+  {% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <header>
+    <div class="container_16">
+      <h1 class="grid_10"><img src="{{ STATIC_URL }}img/logo.png" height="40"></h1>
+
+      <div id="search" class="grid_6">
+        <form method="post" action="/blog/search/" class="">
+          <input type="text" name="search"> <input type="button" name="search_button" value="Search">
+        </form>
+      </div>
+    </div>
+    
+    <div class="clear"></div>
+  </header>
+  
+  <nav>
+    <div class="container_16">
+      Latest &#149; Popular &#149; All Apps
+      <div class="clear"></div>
+    </div>
+  </nav>
+  
+  <div id="content" class="container_16">
+    
+    {% if site_wide_announcements %}
+        <div id="site_wide_announcements" class="grid_16">
+            <ul>
+                {% for announcement in site_wide_announcements %}
+                <li>
+                    <a href="{{ announcement.get_absolute_url }}">{{ announcement }}</a> -
+                    <a href="{% url announcement_hide announcement.pk %}?next={{ request.path }}">Hide announcement</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    
+    <section class="grid_8 app_list">
+      <h2>Hot Apps</h2>
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">lorem ipsum</a>
+          <div class="oneliner">dolor sit amet, consectetur adipiscing elit.</div>
+          
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">arcu nibh</a>
+          <div class="oneliner">lectus faucibus ornare egestas sit amet urna.</div>
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">ipsum</a>
+          <div class="oneliner">dolor sit amet, consectetur adipiscing elit.</div>
+          
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">nibh</a>
+          <div class="oneliner">Duis et magna ipsum. Proin id diam nec lectus faucibus ornare egestas sit amet urna.</div>
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      <div class="clear"></div>
+    </section>
+    
+    <section class="grid_8 app_list">
+      <h2>Active Apps</h2>
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">risus</a>
+          <div class="oneliner">lectus, eu molestie leo vestibulum ut.</div>
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">odio justo</a>
+          <div class="oneliner">Nulla venenatis urna  sem scelerisque, eu molestie leo vestibulum ut. </div>
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">lorem</a>
+          <div class="oneliner">dolor sit  adipiscing elit.</div>
+          
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      
+      <article class="app_badge active_project">
+        <div class="app_info">
+          <a class="name" href="#">fcinibh</a>
+          <div class="oneliner">Duis et magna egestas sit amet urna.</div>
+          <div class="moreinfo">
+            <time datetime="2008-02-14" class="last_checkin">3 days ago</time>
+            <span class="license">BSD</span>
+          </div>
+        </div>
+        
+        <div class="likes">3<br><img src="{{ STATIC_URL }}img/heart.png"></div>
+      </article>
+      
+      <div class="clear"></div>
+    </section>
+  </div>
+  
+  <div class="clear"></div>
+
+  <footer>
+    {% block footer %}
+    <div class="container_16">
+      <p class="grid_16"></p>
+      <div class="clear"></div>
+    </div>
+    {% endblock %}
+  </footer>
+  
+  {% block extra_body_base %}
+      {% block extra_body %}{% endblock %}
+  {% endblock %}
+</body>
+</html>

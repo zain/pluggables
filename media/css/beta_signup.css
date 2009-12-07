@@ -1,0 +1,46 @@
+body {
+    color: #222224;
+    font-family: Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    background: #fff url('../img/blurry_bg.png') no-repeat top center;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #0F1214;
+    color: #0F1214;
+}
+
+h3 {
+    font-size: 13px;
+}
+
+a:link, a:visited {
+    color: #437346;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #97D95C;
+}
+
+#content {
+    margin-top: 250px;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+#beta_signup {
+    border: 1px solid #0F1214;
+    background-color: #EDFDFF;
+    padding: 30px 0px;
+}
+
+#beta_signup .invite_me {
+    margin-top: 10px;
+}
